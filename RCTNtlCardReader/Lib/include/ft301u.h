@@ -15,16 +15,16 @@ extern "C"
 {
 #endif
     
-//======================================================================================
-//=============================general function=========================================
-//======================================================================================
+    //======================================================================================
+    //=============================general function=========================================
+    //======================================================================================
     LONG SCARD_CTL_CODE(unsigned int code);
     /*
      Function: FtGetDevVer
      
      Parameters:
-     hContext	IN	 Connection context to the PC/SC Resource Manager
-     firmwareRevision 	OUT	 firmware Version
+     hContext    IN     Connection context to the PC/SC Resource Manager
+     firmwareRevision     OUT     firmware Version
      hardwareRevision   OUT     hardwareVersion
      Description:
      The function read the firmware and hardware Version.
@@ -48,8 +48,8 @@ extern "C"
      Function: FtSetTimeout
      
      Parameters:
-     hContext	IN	 Connection context to the PC/SC Resource Manager
-     dwTimeout 	IN	 New transmission timeout value of between 301 and card (millisecond )
+     hContext    IN     Connection context to the PC/SC Resource Manager
+     dwTimeout     IN     New transmission timeout value of between 301 and card (millisecond )
      
      Description:
      The function New transmission timeout value of between 301 and card.
@@ -61,10 +61,10 @@ extern "C"
      Function: FtWriteFlash
      
      Parameters:
-     hCard          IN 		Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
-     bOffset		IN		Offset of flash to write
-     blength		IN		The length of data
-     buffer       	IN		The data for write
+     hCard          IN         Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
+     bOffset        IN        Offset of flash to write
+     blength        IN        The length of data
+     buffer           IN        The data for write
      
      Description:
      This function userd to write data to flash.
@@ -77,7 +77,7 @@ extern "C"
      hCard             IN         Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
      bOffset        IN        Offset of flash to write
      blength        IN/OUT  IN:The length of data want to read;
-                            OUT:the real length of readed data;
+     OUT:the real length of readed data;
      buffer           OUT        The read data
      
      Description:
@@ -85,30 +85,30 @@ extern "C"
      */
     LONG FtReadFlash(SCARDCONTEXT hContext,unsigned int bOffset, unsigned int* blength,unsigned char *buffer);
     
-//======================================================================================
-//=============================ir301 function===========================================
-//======================================================================================
+    //======================================================================================
+    //=============================ir301 function===========================================
+    //======================================================================================
     
     /*
-    Function: FtGetSerialNum
- 
-    Parameters:
-    hCard 			IN 		Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
-    length			IN		length of buffer(>=8)
-    buffer       	OUT		Serial number
- 
-    Description:
-    This function userd to get serial number of iR301.
-    */
+     Function: FtGetSerialNum
+     
+     Parameters:
+     hCard             IN         Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
+     length            IN        length of buffer(>=8)
+     buffer           OUT        Serial number
+     
+     Description:
+     This function userd to get serial number of iR301.
+     */
     
     LONG FtGetSerialNum(SCARDHANDLE hCard, unsigned int  *length,
-                                      char * buffer);
-    /* Function: FT_AutoTurnOffReader 
+                        char * buffer);
+    /* Function: FT_AutoTurnOffReader
      
-     Parameters: 
-     isOpen IN the switch is able to open/close the automatic shutdown function of reader. 
+     Parameters:
+     isOpen IN the switch is able to open/close the automatic shutdown function of reader.
      
-     Description: 
+     Description:
      The function is able to open/close the automatic shutdown function of reader. */
     LONG FT_AutoTurnOffReader(bool isOpen);
     
@@ -117,9 +117,9 @@ extern "C"
      Function: FtDukptInit
      
      Parameters:
-     hCard 		IN 	 Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
-     encBuf 	IN	 Ciphertext use TDES_ECB_PKCS7/AES_ECB_PKCS7 (See "Key C" )
-     nLen       IN	 encBuf length(40(TDES_ECB_PKCS7 ciphertext length) 48(AES_ECB_PKCS7 ciphertext length))
+     hCard         IN      Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
+     encBuf     IN     Ciphertext use TDES_ECB_PKCS7/AES_ECB_PKCS7 (See "Key C" )
+     nLen       IN     encBuf length(40(TDES_ECB_PKCS7 ciphertext length) 48(AES_ECB_PKCS7 ciphertext length))
      
      Description:
      Init iR301 new ipek and ksn for dukpt.
@@ -132,15 +132,15 @@ extern "C"
      Function: FtDukptSetEncMod
      
      Parameters:
-     hCard 		IN 	 Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
-     bEncrypt 	IN	 1: SCardTransmit  Encrypted    
-                     0:SCardTransmit not Encrypted
+     hCard         IN      Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
+     bEncrypt     IN     1: SCardTransmit  Encrypted
+     0:SCardTransmit not Encrypted
      
-     bEncFunc	IN	 0: Encryption functioon use TDES_ECB_PKCS7
-                     1:Encryption functioon use AES_ECB_PKCS7
+     bEncFunc    IN     0: Encryption functioon use TDES_ECB_PKCS7
+     1:Encryption functioon use AES_ECB_PKCS7
      
-     bEncType	IN	 1: SCardTransmit: Plaintext in Ciphertext out 
-                     0: SCardTransmit: Ciphertext in Ciphertext out 
+     bEncType    IN     1: SCardTransmit: Plaintext in Ciphertext out
+     0: SCardTransmit: Ciphertext in Ciphertext out
      
      Description:
      Set the encryption mode of iR301 for dukpt.
@@ -158,10 +158,10 @@ extern "C"
      Function: FtDukptGetKSN
      
      Parameters:
-     hCard 		IN      Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
-     pnlength 	INOUT	IN: The size of ksn buffer(>=10) 
-                        OUT: The real size(if successful has been 10)
-     buffer 	OUT     Buffer of ksn
+     hCard         IN      Connection made from SCardConnect(Ignore this parameter and just set to zero in iOS system)
+     pnlength     INOUT    IN: The size of ksn buffer(>=10)
+     OUT: The real size(if successful has been 10)
+     buffer     OUT     Buffer of ksn
      
      Description:
      Get Ksn from iR301 for dukpt.
@@ -173,8 +173,8 @@ extern "C"
      Function: FtDidEnterBackground
      
      Parameters:
-     bDidEnter 	IN	 must be set 1
-                     
+     bDidEnter     IN     must be set 1
+     
      
      Description:
      Use this method to release monitor thread of reader status
@@ -196,17 +196,17 @@ extern "C"
     
     LONG FtGetCurrentReaderType(unsigned int *readerType);
     
-//======================================================================================
-//=============================br301 function===========================================
-//======================================================================================
+    //======================================================================================
+    //=============================br301 function===========================================
+    //======================================================================================
     
     /*
      Function: FtGenerateDeviceUID
      
      Parameters:
-     hContext 			IN 		Connection context to the PC/SC Resource Manager
-     seedLength			IN		length of Seed Number(>=1 <=48)
-     seedBuffer       	OUT		Seed Number
+     hContext             IN         Connection context to the PC/SC Resource Manager
+     seedLength            IN        length of Seed Number(>=1 <=48)
+     seedBuffer           OUT        Seed Number
      
      Description:
      This function used to Generate Device UID
@@ -218,9 +218,9 @@ extern "C"
      Function: FtGetDeviceUID
      
      Parameters:
-     hContext 			IN 		Connection context to the PC/SC Resource Manager
-     uidLength			IN		length of buffer(>=8)
-     uidBuffer       	OUT		 Device UID
+     hContext             IN         Connection context to the PC/SC Resource Manager
+     uidLength            IN        length of buffer(>=8)
+     uidBuffer           OUT         Device UID
      
      Description:
      This function used to get  UID of bR500.
@@ -231,9 +231,9 @@ extern "C"
      Function: FtEraseDeviceUID
      
      Parameters:
-     hContext 			IN 		Connection context to the PC/SC Resource Manager
-     seedLength			IN		length of Seed Number(>=1 <=48)
-     seedBuffer       	OUT		Seed Number
+     hContext             IN         Connection context to the PC/SC Resource Manager
+     seedLength            IN        length of Seed Number(>=1 <=48)
+     seedBuffer           OUT        Seed Number
      
      Description:
      This function used to Erase Device UID
