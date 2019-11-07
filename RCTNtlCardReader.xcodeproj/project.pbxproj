@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183EE57021C17DB3004ECB37 /* libiRockey301_ccid_V1.32.5_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DFBF8F21C010BF0074BB67 /* libiRockey301_ccid_V1.32.5_Debug.a */; };
 		18B163CA21B65E1800105E89 /* RCTNtlCardReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B163C921B65E1800105E89 /* RCTNtlCardReader.m */; };
 		18B163CB21B65E1800105E89 /* RCTNtlCardReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18B163C821B65E1800105E89 /* RCTNtlCardReader.h */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A6CEE8E42230B95A00F63439 /* libiRockey301_ccid_V1.32.5_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DFBF8F21C010BF0074BB67 /* libiRockey301_ccid_V1.32.5_Debug.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183EE57021C17DB3004ECB37 /* libiRockey301_ccid_V1.32.5_Debug.a in Frameworks */,
+				A6CEE8E42230B95A00F63439 /* libiRockey301_ccid_V1.32.5_Debug.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +310,7 @@
 				);
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRAA467396;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -342,7 +342,7 @@
 				);
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRAA467396;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
